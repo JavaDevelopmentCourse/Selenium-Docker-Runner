@@ -3,18 +3,18 @@ services:
   vendor-portal:
     image: javadevelopmentcourse/selenium-web-automation-docker
     environment:
-    - BROWSER=chrome
+    - BROWSER=${BROWSER}
     - HUBHOST=hub
     - THREADCOUNT=3
-    - TESTSUITE=vendor-portal.xml
+    - TESTSUITE=${TESTSUITE}
     volumes:
     - ./ExecutionResults/Results/vendor-portal:/home/selenium-docker/test-output
   flight-reservation-portal:
     image: javadevelopmentcourse/selenium-web-automation-docker
     environment:
-    - BROWSER=firefox
+    - BROWSER=${BROWSER}
     - HUBHOST=hub
     - THREADCOUNT=3
-    - TESTSUITE=flight-reservation.xml
+    - TESTSUITE=${TESTSUITE}
     volumes:
     - ./ExecutionResults/Results/flight-reservation:/home/selenium-docker/test-output  
