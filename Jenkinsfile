@@ -3,10 +3,9 @@ pipeline{
     agent any
 parameters {
   choice choices: ['chrome', 'firefox'], description: 'select the browser', name: 'BROWSER'
-}
-parameters {
   choice choices: ['*.xml', 'flight-reservation.xml', 'vendor-portal.xml'], description: 'select the browser', name: 'TESTSUITES'
 }
+
 
     stages{
 
