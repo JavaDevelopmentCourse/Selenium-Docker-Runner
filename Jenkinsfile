@@ -3,7 +3,6 @@ pipeline{
     agent any
 parameters {
   choice choices: ['chrome', 'firefox'], description: 'select the browser', name: 'BROWSER'
-  choice choices: ['*.xml', 'flight-reservation.xml', 'vendor-portal.xml'], description: 'select the browser', name: 'TESTSUITES'
 }
 
 
@@ -12,7 +11,7 @@ parameters {
         stage('Run GRID')
         {
             steps{
-                bat "docker-compose -f grid.yaml --scale ${params.BROWSER}=2 -e ${params.TESTSUITES} up -d"
+                bat "docker-compose -f grid.yaml up --scale ${params.BROWSER}=2 -d"
                 
             }
         }
