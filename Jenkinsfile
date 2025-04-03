@@ -19,7 +19,7 @@ parameters {
         {
         steps{
                 
-                bat "docker-compose -f test-suites.yaml up"
+                bat "docker-compose -f test-suites.yaml up --pull=always"
                 script{
                     if(fileExists('ExecutionResults/Results/flight-reservation/testng-failed.xml')|| fileExists('ExecutionResults/Results/vendor-portal/testng-failed.xml'))
                     {
