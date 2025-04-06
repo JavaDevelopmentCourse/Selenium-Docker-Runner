@@ -5,7 +5,7 @@ services:
     environment:
     - BROWSER=${BROWSER}
     - HUBHOST=hub
-    - THREADCOUNT=3
+    - THREADCOUNT=1
     - TESTSUITE=vendor-portal.xml
     volumes:
     - ./ExecutionResults/Results/vendor-portal:/home/selenium-docker/test-output
@@ -14,7 +14,7 @@ services:
     environment:
     - BROWSER=${BROWSER}
     - HUBHOST=hub
-    - THREADCOUNT=3
+    - THREADCOUNT=1
     - TESTSUITE=flight-reservation.xml
     volumes:
     - ./ExecutionResults/Results/flight-reservation:/home/selenium-docker/test-output  
