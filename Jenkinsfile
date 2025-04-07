@@ -11,7 +11,7 @@ parameters {
         stage('Run GRID')
         {
             steps{
-                sh "docker-compose -f grid.yaml up --scale ${params.BROWSER}=2 -d"
+                bat "docker-compose -f grid.yaml up --scale ${params.BROWSER}=2 -d"
                 
             }
         }
@@ -19,7 +19,7 @@ parameters {
         {
         steps{
                 
-                sh "docker-compose -f test-suites.yaml up --pull=always"
+                bat "docker-compose -f test-suites.yaml up --pull=always"
                 script{
                     if(fileExists('ExecutionResults/Results/flight-reservation/testng-failed.xml')|| fileExists('ExecutionResults/Results/vendor-portal/testng-failed.xml'))
                     {
@@ -36,8 +36,8 @@ parameters {
 
     post{
         always{
-            sh "docker-compose -f grid.yaml down"
-            sh "docker-compose -f test-suites.yaml down"
+            bat "docker-compose -f grid.yaml down"
+            bat "docker-compose -f test-suites.yaml down"
              archiveArtifacts artifacts: 'ExecutionResults/Results/flight-reservation/emailable-report.html', followSymlinks: false
             archiveArtifacts artifacts: 'ExecutionResults/Results/vendor-portal/emailable-report.html', followSymlinks: false
         }
