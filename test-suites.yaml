@@ -1,20 +1,12 @@
 version: "3"
 services:
-  vendor-portal:
+  automation-execution:
     image: javadevelopmentcourse/selenium-web-automation-docker
     environment:
     - BROWSER=${BROWSER}
     - HUBHOST=hub
     - THREADCOUNT=4
-    - TESTSUITE=vendor-portal.xml
+    - TESTSUITE=testng-suite.xml
     volumes:
     - ./ExecutionResults/Results/vendor-portal:/home/selenium-docker/test-output
-  flight-reservation-portal:
-    image: javadevelopmentcourse/selenium-web-automation-docker
-    environment:
-    - BROWSER=${BROWSER}
-    - HUBHOST=hub
-    - THREADCOUNT=3
-    - TESTSUITE=flight-reservation.xml
-    volumes:
-    - ./ExecutionResults/Results/flight-reservation:/home/selenium-docker/test-output  
+    - ./ExecutionResults/Results/flight-reservation:/home/selenium-docker/test-output
